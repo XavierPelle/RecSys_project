@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 1051
 
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+ENTRYPOINT ["sh", "start.sh", "recsys_db"]
