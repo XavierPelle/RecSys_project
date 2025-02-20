@@ -1,0 +1,24 @@
+services:
+  recsys_db:
+    container_name: recsys_db
+    image: postgres:17
+    restart: always
+    env_file: .env
+    environment:
+      POSTGRES_USER: main
+      POSTGRES_PASSWORD: FB1atQfXCPptY7I7BuMsAX91bGcTXx4R
+      POSTGRES_DB: recsys_db
+    ports:
+      - "5432:5432"
+
+  recsys_api:
+    build:
+      context: .
+    container_name: recsys_api
+    env_file: .env
+    volumes:
+      - .:/api
+    ports:
+      - "1051:1051"
+    depends_on:
+      - recsys_db  
