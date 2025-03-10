@@ -3,8 +3,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const { client } = require("./config/database.js");
-const app = express();
-const port = 1051;
+const { processCsvFiles } = require('./data/insertData')
+
+
 
 const { router } = require("./route.js");
 
@@ -41,6 +42,7 @@ client
   .catch((err) => {
     console.error("Error connecting to PostgreSQL database", err);
   });
+processCsvFiles();
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

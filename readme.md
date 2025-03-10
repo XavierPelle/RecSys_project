@@ -1,0 +1,1 @@
+psql -U main -d recsys_db
