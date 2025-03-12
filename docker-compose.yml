@@ -21,4 +21,6 @@ services:
     ports:
       - "1051:1051"
     depends_on:
-      - recsys_db  
+      - recsys_db   
+
+     
